@@ -27,19 +27,19 @@ code {
 .incoming {
 	margin-left: 20px;
 }
-.name {
+/* .name {
 	color: blue;
 	margin: 10px;
 	border: solid 1px black;
 	padding: 15px;
 	padding-left: 20px;
 	padding-right: 20px;
-}
+} */
 
-.message-text {
+/* .message-text {
 	border: solid 1px black;
 	margin-top: 10px;
-}
+} */
 
 input {
 	border-radius: 15px;
@@ -49,17 +49,20 @@ input {
 	padding-right: 20px;
 	margin: 20px;
 	outline: none;
-	width: 200px;
+	width: 500px;
+	margin-right: 150px;
 }
 
 button {
 	border-radius: 40px;
-	background-color: blue;
+	background-color: rgb(0, 120, 254);
 	color: white;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: 10px;
+	outline: none;
+	margin-right: 150px;
 }
 
 .login {
@@ -70,4 +73,118 @@ button {
 	color: black;
 	border: 1px solid black;
 	box-shadow: 1px 2px black;
+	border-radius: 40px;
+}
+
+.message-list {
+	width: 50%;
+	/* border: solid 1px #eee; */
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	margin: auto;
+	margin-top: 100px;
+}
+.message {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.message-text {
+	border-radius: 20px;
+	padding: 8px 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+.incoming {
+	align-items: flex-start;
+}
+
+.incoming .message-text {
+	margin-right: 25%;
+	background-color: #eee;
+	position: relative;
+}
+
+.incoming .message-text:before {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	left: -7px;
+	height: 20px;
+	width: 20px;
+	background: #eee;
+	border-bottom-right-radius: 15px;
+}
+.incoming .message-text:after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: -10px;
+	width: 10px;
+	height: 20px;
+	background: white;
+	border-bottom-right-radius: 10px;
+}
+
+.outgoing {
+	align-items: flex-end;
+}
+
+.outgoing .message-text {
+	color: white;
+	margin-left: 25%;
+	background: rgb(0, 120, 254);
+	position: relative;
+}
+
+.outgoing .message-text:before {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	right: -8px;
+	height: 20px;
+	width: 20px;
+	background: rgb(0, 120, 254);
+	border-bottom-left-radius: 15px;
+}
+
+.outgoing .message-text:after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: -10px;
+	width: 10px;
+	height: 20px;
+	background: white;
+	border-bottom-left-radius: 10px;
+}
+
+.bottom-div {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-left: 500px;
+}
+
+.responsive {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+	height: auto;
+}
+
+.enter {
+	padding: 10px 100px 10px 100px;
+	box-shadow: 2px 2px black;
+	margin: auto;
+	/* margin-bottom: 100px; */
 }

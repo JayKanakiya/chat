@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker'
 import { BrowserRouter } from 'react-router-dom'
 import { WebSocketLink } from '@apollo/link-ws'
 import { getMainDefinition } from '@apollo/client/utilities'
+import Login from './components/Login'
+import ChatRoom from './components/ChatRoom'
+import { Switch, Route } from 'react-router-dom'
 
 import {
 	ApolloClient,
@@ -15,9 +18,16 @@ import {
 	split,
 } from '@apollo/client'
 
-const httpLink = new HttpLink({ uri: 'http://localhost:4001/graphql' })
+// const httpLink = new HttpLink({ uri: 'http://localhost:4001/graphql' })
+const httpLink = new HttpLink({ uri: '/graphql/' })
+
+// const wsLink = new WebSocketLink({
+// 	uri: 'ws://localhost:4002/graphql',
+// 	options: { reconnect: true },
+// })
+const host = window.location.host
 const wsLink = new WebSocketLink({
-	uri: 'ws://localhost:4002/graphql',
+	uri: `ws://${host}/graphql/`,
 	options: { reconnect: true },
 })
 const splitLink = split(
@@ -40,7 +50,11 @@ const client = new ApolloClient({
 ReactDOM.render(
 	<BrowserRouter>
 		<ApolloProvider client={client}>
-			<App />
+			<Switch>
+				<Route exact path='/' component={App} />
+				<Route exact path='/login' component={Login} />
+				<Route exact path='/room' component={ChatRoom} />
+			</Switch>
 		</ApolloProvider>
 	</BrowserRouter>,
 	document.getElementById('root')

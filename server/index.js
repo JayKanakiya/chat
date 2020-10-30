@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const schema = require('./schema/schema')
@@ -11,7 +12,7 @@ const { execute, subscribe } = require('graphql')
 const app = express()
 app.use(cors())
 
-const uri = 'mongodb://127.0.0.1:27017/chat-app?authSource=admin'
+const uri = process.env.MONGODB_URI
 
 const serverOptions = {
 	socketTimeoutMS: 30000,
@@ -29,7 +30,7 @@ mongoose
 		console.error(Error, err.message)
 	})
 
-const WS_PORT = 4002
+const WS_PORT = process.env.WS_PORT || 4002
 const ws = createServer((req, res) => {
 	res.writeHead(400), res.end()
 })
@@ -57,7 +58,7 @@ app.use(
 		graphiql: true,
 	})
 )
-const PORT = 4001
+const PORT = process.env.PORT || 4001
 
 app.listen(PORT, () => {
 	console.log(`listening on ${PORT}`)

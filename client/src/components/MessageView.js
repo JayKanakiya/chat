@@ -32,7 +32,7 @@ const MessageView = ({ username }) => {
 			return (
 				<div className={`message ${type}`}>
 					{type === 'incoming' ? <p className='name'>{m.username}</p> : null}
-					<div className='message-text'>
+					<div className={`message-text`}>
 						<p>{m.text}</p>
 					</div>
 				</div>

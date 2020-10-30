@@ -21,7 +21,7 @@ const MessageForm = ({ username }) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<div>
+				<div className='bottom-div'>
 					<input
 						type='text'
 						name='message'

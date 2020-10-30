@@ -2,16 +2,17 @@ import React from 'react'
 import './App.css'
 import Login from './components/Login'
 import ChatRoom from './components/ChatRoom'
+import Chat from './assets/Chat.png'
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
 	return (
 		<div className='App'>
-			<Switch>
-				<Route path='/login' component={Login} />
-				<Route path='/room' component={ChatRoom} />
-			</Switch>
+			<img src={Chat} alt='Chat' className='responsive' />
+			<Link to='/login'>
+				<button className='enter'>Login</button>
+			</Link>
 		</div>
 	)
 }
